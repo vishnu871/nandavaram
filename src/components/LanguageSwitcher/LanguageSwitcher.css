@@ -1,101 +1,126 @@
+
+/* =========================================================
+   LANGUAGE SWITCHER
+   ========================================================= */
+
 .language-switcher {
   position: relative;
+  z-index: 100;
   display: inline-flex;
   align-items: center;
-  z-index: 30;
+  flex-shrink: 0;
 }
+
+/* =========================================================
+   LANGUAGE TRIGGER
+   ========================================================= */
 
 .language-switcher__trigger {
   display: inline-flex;
+  min-width: 116px;
+  min-height: 52px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 40px;
-  padding: 0 12px;
-  border: 1px solid rgba(212, 165, 55, 0.4);
-  border-radius: 999px;
-  background: rgba(255, 244, 223, 0.82);
-  color: #4a2b19;
+  gap: 11px;
+  padding: 0 17px;
+  border: 1px solid #e9ce9d;
+  border-radius: 50px;
+  background: #fff7e9;
+  color: #59351f;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.4px;
   cursor: pointer;
   transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    color 0.25s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.language-switcher__trigger:hover,
-.language-switcher__trigger.is-open {
+.language-switcher__trigger:hover {
   border-color: #d4a537;
-  background: #fff4df;
-  color: #8c321b;
-  box-shadow: 0 4px 14px rgba(140, 50, 27, 0.1);
+  background: #fff0d5;
+  box-shadow: 0 4px 12px rgba(91, 55, 27, 0.07);
+}
+
+.language-switcher__trigger:focus-visible {
+  outline: 3px solid rgba(232, 117, 22, 0.3);
+  outline-offset: 3px;
+}
+
+.language-switcher__trigger svg {
+  flex-shrink: 0;
+}
+
+.language-switcher__current {
+  min-width: 22px;
+  text-align: center;
 }
 
 .language-switcher__chevron {
   transition: transform 0.25s ease;
 }
 
-.language-switcher__trigger.is-open .language-switcher__chevron {
+.language-switcher__chevron--open {
   transform: rotate(180deg);
 }
 
-.language-switcher__current {
-  line-height: 1;
+/* =========================================================
+   OUTSIDE CLICK OVERLAY
+   ========================================================= */
+
+.language-switcher__overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: transparent;
 }
 
-.language-switcher__outside {
-  position: fixed;
-  inset: 0;
-  z-index: 31;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: default;
-}
+/* =========================================================
+   LANGUAGE DROPDOWN
+   ========================================================= */
 
 .language-switcher__dropdown {
   position: absolute;
+  z-index: 1002;
   top: calc(100% + 12px);
   right: 0;
-  z-index: 32;
   width: 190px;
-  padding: 10px;
+  padding: 9px;
   overflow: hidden;
-  border: 1px solid rgba(212, 165, 55, 0.35);
-  border-radius: 16px;
+  border: 1px solid #ead7b5;
+  border-radius: 17px;
   background: #fffaf0;
-  box-shadow: 0 12px 35px rgba(74, 43, 25, 0.16);
-  animation: languageDropdownEnter 0.2s ease both;
+  box-shadow:
+    0 15px 40px rgba(65, 39, 21, 0.15),
+    0 3px 10px rgba(65, 39, 21, 0.05);
+  animation: languageDropdownIn 0.2s ease both;
 }
 
 .language-switcher__heading {
-  display: block;
-  padding: 8px 10px 10px;
-  color: #987d5e;
-  font-size: 11px;
+  padding: 10px 12px 12px;
+  color: #9a714b;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .language-switcher__option {
   display: flex;
   width: 100%;
+  min-height: 46px;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 11px 10px;
+  padding: 10px 12px;
   border: 0;
-  border-radius: 9px;
+  border-radius: 10px;
   background: transparent;
-  color: #4a2b19;
+  color: #63452e;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
   transition:
@@ -104,25 +129,30 @@
 }
 
 .language-switcher__option:hover {
-  background: #fff0d3;
-  color: #8c321b;
+  background: #fff0d5;
+  color: #a3481d;
 }
 
-.language-switcher__option.is-selected {
-  background: rgba(232, 117, 22, 0.1);
-  color: #a94d12;
+.language-switcher__option--active {
+  background: #fff0d5;
+  color: #9b451e;
   font-weight: 700;
 }
 
-.language-switcher__option svg {
-  color: #c18a24;
-  flex-shrink: 0;
+.language-switcher__check {
+  display: flex;
+  align-items: center;
+  color: #bd7927;
 }
 
-@keyframes languageDropdownEnter {
+/* =========================================================
+   DROPDOWN ANIMATION
+   ========================================================= */
+
+@keyframes languageDropdownIn {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-7px);
   }
 
   to {
@@ -131,21 +161,90 @@
   }
 }
 
+/* =========================================================
+   MOBILE NAVIGATION DROPDOWN FIX
+   ========================================================= */
+
+@media (max-width: 850px) {
+  /*
+   * The mobile menu contains the language switcher.
+   * Allow its dropdown to extend beyond the panel.
+   */
+  .temple-navbar__mobile-panel:has(.language-switcher) {
+    overflow: visible;
+  }
+
+  .temple-navbar__mobile-panel .language-switcher {
+    position: relative;
+    z-index: 1003;
+  }
+
+  .temple-navbar__mobile-panel .language-switcher__dropdown {
+    top: auto;
+    right: 0;
+    bottom: calc(100% + 12px);
+    width: 190px;
+    z-index: 1005;
+    transform-origin: bottom right;
+    animation: languageDropdownUp 0.2s ease both;
+  }
+
+  .temple-navbar__mobile-panel .language-switcher__overlay {
+    z-index: 1001;
+  }
+
+  .temple-navbar__mobile-panel .language-switcher__trigger {
+    position: relative;
+    z-index: 1004;
+  }
+}
+
+@keyframes languageDropdownUp {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 480px) {
   .language-switcher__trigger {
-    min-height: 38px;
-    padding: 0 10px;
-    gap: 6px;
+    min-width: 108px;
+    min-height: 48px;
+    gap: 9px;
+    padding: 0 14px;
+    font-size: 0.9rem;
   }
 
   .language-switcher__dropdown {
     width: 175px;
   }
+
+  .temple-navbar__mobile-panel .language-switcher__dropdown {
+    width: 185px;
+  }
+
+  .language-switcher__option {
+    min-height: 45px;
+    font-size: 0.88rem;
+  }
 }
 
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .language-switcher__trigger,
   .language-switcher__chevron,
+  .language-switcher__trigger,
   .language-switcher__option {
     transition: none;
   }
