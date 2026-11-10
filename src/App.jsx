@@ -9,7 +9,7 @@ import { LanguageProvider } from "./context/LanguageContext.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 
 import Home from "./pages/Home/Home.jsx";
-import About from "./pages/About/About.jsx";
+import Auth from "./pages/Auth/Auth.jsx";
 
 function PlaceholderPage({ title, description }) {
   return (
@@ -32,15 +32,6 @@ function MediaArchivePage() {
     <PlaceholderPage
       title="Media Archive"
       description="Explore temple photographs, videos and festival memories."
-    />
-  );
-}
-
-function AuthPage() {
-  return (
-    <PlaceholderPage
-      title="Devotee Account"
-      description="Account registration and sign-in will be implemented in a later stage."
     />
   );
 }
@@ -97,31 +88,22 @@ function App() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
-
-            {/* Actual About page */}
-            <Route path="/about" element={<About />} />
-
+            <Route path="/about" element={<PlaceholderPage title="About the Temple" description="Discover the temple, its spiritual significance, traditions and heritage." />} />
             <Route
               path="/media-archive"
               element={<MediaArchivePage />}
             />
-
-            <Route path="/auth" element={<AuthPage />} />
-
+            <Route path="/auth" element={<Auth />} />
             <Route path="/profile" element={<ProfilePage />} />
-
             <Route
               path="/darshan-booking"
               element={<DarshanBookingPage />}
             />
-
             <Route
               path="/donations"
               element={<DonationsPage />}
             />
-
             <Route path="/events" element={<EventsPage />} />
-
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
