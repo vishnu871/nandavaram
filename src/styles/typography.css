@@ -1,0 +1,123 @@
+/* English and Telugu typography foundations */
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Telugu font selection */
+
+html[lang="te"] body {
+  font-family: var(--font-telugu);
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+html[lang="te"] h1,
+html[lang="te"] h2,
+html[lang="te"] h3,
+html[lang="te"] h4,
+html[lang="te"] h5,
+html[lang="te"] h6 {
+  font-family: var(--font-telugu);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Heading sizes */
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+/* Paragraphs */
+
+p {
+  margin-bottom: 16px;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+html[lang="te"] p {
+  line-height: 1.9;
+}
+
+/* Small text */
+
+small {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Strong text */
+
+strong,
+b {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+/* Form labels */
+
+label {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Responsive typography */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  html[lang="te"] body {
+    font-size: 15px;
+  }
+
+  h1 {
+    line-height: 1.2;
+  }
+}

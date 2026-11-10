@@ -1,0 +1,77 @@
+:root {
+  /* Primary temple colours */
+  --color-saffron: #E87516;
+  --color-kesari: #F5A623;
+  --color-antique-gold: #D4A537;
+
+  /* Supporting devotional colours */
+  --color-sacred-ivory: #FFF4DF;
+  --color-deep-kumkum: #8C321B;
+  --color-temple-brown: #4A2B19;
+
+  /* Backgrounds */
+  --color-background: #FFFAF0;
+  --color-surface: #FFFFFF;
+  --color-surface-warm: #FFF4DF;
+  --color-surface-muted: #F8EBD5;
+
+  /* Text */
+  --color-text-primary: #4A2B19;
+  --color-text-secondary: #80664D;
+  --color-text-muted: #A18B72;
+  --color-text-light: #FFFAF0;
+
+  /* Borders and shadows */
+  --color-border: rgba(212, 165, 55, 0.3);
+  --color-border-strong: rgba(212, 165, 55, 0.6);
+
+  --shadow-soft:
+    0 4px 16px rgba(74, 43, 25, 0.06);
+
+  --shadow-medium:
+    0 10px 30px rgba(74, 43, 25, 0.1);
+
+  --shadow-gold:
+    0 6px 20px rgba(212, 165, 55, 0.18);
+
+  /* Typography */
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: "Segoe UI", Roboto, Arial, sans-serif;
+  --font-telugu: "Noto Sans Telugu", "Gautami", sans-serif;
+
+  /* Layout */
+  --container-width: 1440px;
+  --page-padding: 48px;
+
+  /* Border radius */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+  --radius-pill: 999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-smooth: 0.5s ease;
+
+  /* Layering */
+  --z-content: 1;
+  --z-navbar: 100;
+  --z-dropdown: 200;
+  --z-overlay: 500;
+  --z-intro: 1000;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-normal: 0s;
+    --transition-smooth: 0s;
+  }
+}

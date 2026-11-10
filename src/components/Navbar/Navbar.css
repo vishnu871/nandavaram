@@ -1,0 +1,431 @@
+.temple-navbar-wrapper {
+  position: relative;
+  z-index: 100;
+  width: min( calc(100% - 48px), 1440px);
+  margin: 24px auto 0;
+}
+
+.temple-navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+  padding: 10px 18px 10px 22px;
+  border: 1px solid rgba(212, 165, 55, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.94);
+  box-shadow:
+    0 8px 30px rgba(74, 43, 25, 0.08),
+    0 2px 8px rgba(74, 43, 25, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Temple branding */
+
+.temple-navbar__brand {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 11px;
+  color: #4a2b19;
+  text-decoration: none;
+}
+
+.temple-navbar__logo {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 165, 55, 0.65);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff4df, #fce5bb);
+  color: #a94d12;
+}
+
+.temple-navbar__brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.temple-navbar__temple-name {
+  color: #642e19;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.temple-navbar__location {
+  color: #987d5e;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.35px;
+}
+
+/* Desktop navigation */
+
+.temple-navbar__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.temple-navbar__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 13px;
+  color: #6d5845;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.temple-navbar__link::after {
+  position: absolute;
+  right: 13px;
+  bottom: 5px;
+  left: 13px;
+  height: 2px;
+  border-radius: 2px;
+  background: #d4a537;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.temple-navbar__link:hover,
+.temple-navbar__link.is-active {
+  color: #a94d12;
+}
+
+.temple-navbar__link:hover::after,
+.temple-navbar__link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Desktop actions */
+
+.temple-navbar__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.temple-navbar__get-started {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 19px;
+  border: 1px solid #c98726;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e87516, #c85a16);
+  box-shadow: 0 4px 12px rgba(200, 90, 22, 0.17);
+  color: #fffaf0;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.temple-navbar__get-started:hover {
+  background: linear-gradient(135deg, #d96712, #a94316);
+  box-shadow: 0 6px 16px rgba(200, 90, 22, 0.25);
+  transform: translateY(-2px);
+}
+
+.temple-navbar__profile {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 165, 55, 0.45);
+  border-radius: 50%;
+  background: #fff4df;
+  color: #8c321b;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.temple-navbar__profile:hover {
+  background: #fce5bb;
+  transform: translateY(-2px);
+}
+
+.temple-navbar__signout {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 13px;
+  border: 1px solid rgba(140, 50, 27, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  color: #8c321b;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.temple-navbar__signout:hover {
+  background: #fff0e8;
+}
+
+.temple-navbar__signout:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Mobile menu toggle */
+
+.temple-navbar__mobile-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 165, 55, 0.45);
+  border-radius: 50%;
+  background: #fff4df;
+  color: #8c321b;
+  cursor: pointer;
+}
+
+/* Mobile navigation panel */
+
+.temple-navbar__mobile-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  left: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 0 18px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  background: #fffaf0;
+  box-shadow: 0 12px 30px rgba(74, 43, 25, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    padding 0.25s ease;
+}
+
+.temple-navbar__mobile-panel.is-open {
+  padding: 18px;
+  border-color: rgba(212, 165, 55, 0.35);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.temple-navbar__mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.temple-navbar__mobile-link {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  padding: 0 13px;
+  border-radius: 10px;
+  color: #6d5845;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.temple-navbar__mobile-link:hover,
+.temple-navbar__mobile-link.is-active {
+  background: #fff0d3;
+  color: #a94d12;
+}
+
+.temple-navbar__mobile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212, 165, 55, 0.25);
+}
+
+.temple-navbar__mobile-action {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid rgba(212, 165, 55, 0.35);
+  border-radius: 999px;
+  background: #fff4df;
+  color: #8c321b;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.temple-navbar__mobile-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.temple-navbar__mobile-get-started {
+  flex: 1;
+}
+
+/* Responsive layouts */
+
+@media (max-width: 1100px) {
+  .temple-navbar {
+    gap: 14px;
+  }
+
+  .temple-navbar__navigation {
+    gap: 2px;
+  }
+
+  .temple-navbar__link {
+    padding-right: 9px;
+    padding-left: 9px;
+    font-size: 12px;
+  }
+
+  .temple-navbar__link::after {
+    right: 9px;
+    left: 9px;
+  }
+
+  .temple-navbar__actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 850px) {
+  .temple-navbar-wrapper {
+    width: calc(100% - 32px);
+    margin-top: 16px;
+  }
+
+  .temple-navbar {
+    min-height: 68px;
+    padding: 9px 12px 9px 16px;
+  }
+
+  .temple-navbar__navigation,
+  .temple-navbar__actions {
+    display: none;
+  }
+
+  .temple-navbar__mobile-toggle {
+    display: inline-flex;
+  }
+
+  .temple-navbar__logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .temple-navbar__temple-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .temple-navbar-wrapper {
+    width: calc(100% - 24px);
+    margin-top: 12px;
+  }
+
+  .temple-navbar {
+    min-height: 62px;
+    padding: 8px 10px 8px 12px;
+    gap: 8px;
+  }
+
+  .temple-navbar__brand {
+    gap: 8px;
+  }
+
+  .temple-navbar__logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .temple-navbar__logo svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .temple-navbar__temple-name {
+    max-width: 205px;
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+  }
+
+  .temple-navbar__location {
+    font-size: 10px;
+  }
+
+  .temple-navbar__mobile-toggle {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .temple-navbar__link,
+  .temple-navbar__link::after,
+  .temple-navbar__get-started,
+  .temple-navbar__profile,
+  .temple-navbar__mobile-panel,
+  .temple-navbar__mobile-link {
+    transition: none;
+  }
+
+  .temple-navbar__get-started:hover,
+  .temple-navbar__profile:hover {
+    transform: none;
+  }
+}

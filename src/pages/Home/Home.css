@@ -1,0 +1,901 @@
+
+/* =========================================
+   HOME PAGE
+========================================= */
+
+.home-page {
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+/* =========================================
+   SECTION 1 — TEMPLE INTRODUCTION
+========================================= */
+
+.home-intro {
+  width: 100%;
+  padding: 24px var(--page-padding) 0;
+}
+
+.home-intro__video-placeholder {
+  position: relative;
+  display: flex;
+  min-height: 620px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(212, 165, 55, 0.35);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(245, 166, 35, 0.32), transparent 45%),
+    linear-gradient(135deg, #6d2d16, #9a421b 45%, #4a2b19);
+}
+
+.home-intro__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 17, 8, 0.12),
+    rgba(35, 17, 8, 0.78)
+  );
+  pointer-events: none;
+}
+
+.home-intro__content {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 850px);
+  padding: 60px 20px;
+  color: #fffaf0;
+  text-align: center;
+}
+
+.home-intro__eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #f5c76c;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.home-intro__content h1 {
+  margin-bottom: 18px;
+  color: #fffaf0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.2;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
+}
+
+.home-intro__content p {
+  margin-bottom: 32px;
+  color: rgba(255, 250, 240, 0.88);
+  font-size: 17px;
+}
+
+.home-intro__button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 244, 223, 0.65);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f5a623, #e87516);
+  color: #fffaf0;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-intro__button:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.home-intro__button svg {
+  transition: transform 0.25s ease;
+}
+
+.home-intro__button:hover svg {
+  transform: translateX(4px);
+}
+
+.home-intro__location {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  z-index: 2;
+  color: rgba(255, 250, 240, 0.72);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   SHARED SECTION HEADINGS
+========================================= */
+
+.home-section-heading {
+  max-width: 720px;
+  margin: 0 auto 46px;
+  text-align: center;
+}
+
+.home-section-heading__eyebrow {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--color-saffron);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+}
+
+.home-section-heading h2 {
+  margin-bottom: 14px;
+  color: var(--color-deep-kumkum);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.3;
+}
+
+.home-section-heading p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+/* =========================================
+   SECTION 2 — PILGRIM SERVICES
+========================================= */
+
+.home-services {
+  padding: 110px var(--page-padding);
+}
+
+.home-services__heading {
+  margin-bottom: 54px;
+}
+
+.home-animated-words {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.25em;
+}
+
+.home-animated-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.home-services__decorative-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: 170px;
+  margin: 24px auto 0;
+  color: var(--color-antique-gold);
+}
+
+.home-services__decorative-line span:not(.home-services__decorative-symbol) {
+  width: 55px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-antique-gold)
+  );
+}
+
+.home-services__decorative-line span:first-child {
+  transform: rotate(180deg);
+}
+
+.home-services__decorative-symbol {
+  font-size: 15px;
+}
+
+.home-services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.home-service-card {
+  position: relative;
+  display: flex;
+  min-height: 265px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px 25px 25px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.home-service-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-saffron),
+    var(--color-antique-gold)
+  );
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.home-service-card:hover {
+  border-color: var(--color-antique-gold);
+  background: #fffdf8;
+  box-shadow: var(--shadow-medium);
+}
+
+.home-service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.home-service-card__number {
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  color: rgba(212, 165, 55, 0.42);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.home-service-card__icon {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 23px;
+  border: 1px solid rgba(212, 165, 55, 0.35);
+  border-radius: 17px;
+  background: var(--color-surface-warm);
+  color: var(--color-saffron);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.home-service-card:hover .home-service-card__icon {
+  background: var(--color-saffron);
+  color: #fffaf0;
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.home-service-card h3 {
+  margin-bottom: 10px;
+  color: var(--color-deep-kumkum);
+  font-family: var(--font-heading);
+  font-size: 20px;
+}
+
+.home-service-card p {
+  margin-bottom: 22px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.home-service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  color: var(--color-saffron);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-service-card__link svg {
+  transition: transform 0.25s ease;
+}
+
+.home-service-card__link:hover svg {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   SECTION 3 — ABOUT NANDAVARAM
+========================================= */
+
+.home-about {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 70px;
+  padding: 95px var(--page-padding);
+  background: linear-gradient(
+    115deg,
+    #fff0d8,
+    #fff8eb 65%,
+    #f9e7c8
+  );
+}
+
+.home-about__content {
+  width: 100%;
+  max-width: 600px;
+  justify-self: end;
+}
+
+.home-about__content h2 {
+  margin-bottom: 22px;
+  color: var(--color-deep-kumkum);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.3;
+}
+
+.home-about__content p {
+  margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.home-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-deep-kumkum);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.home-text-link svg {
+  transition: transform 0.25s ease;
+}
+
+.home-text-link:hover {
+  color: var(--color-saffron);
+}
+
+.home-text-link:hover svg {
+  transform: translateX(5px);
+}
+
+.home-about__visual {
+  display: flex;
+  width: 100%;
+  min-height: 380px;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  border: 1px solid rgba(212, 165, 55, 0.45);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle, rgba(245, 166, 35, 0.25), transparent 65%),
+    linear-gradient(145deg, #8c321b, #4a2b19);
+  box-shadow: var(--shadow-medium);
+}
+
+.home-about__visual-inner {
+  display: flex;
+  width: 100%;
+  min-height: 310px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(245, 198, 108, 0.5);
+  border-radius: 16px;
+  color: #f5c76c;
+  font-family: var(--font-heading);
+  font-size: 25px;
+  text-align: center;
+}
+
+/* =========================================
+   SECTION 4 — MEDIA ARCHIVE
+========================================= */
+
+.home-media {
+  padding: 110px var(--page-padding);
+  text-align: center;
+}
+
+.home-media__placeholder {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto 25px;
+  border: 1px dashed rgba(212, 165, 55, 0.65);
+  border-radius: 22px;
+  background: var(--color-surface-warm);
+  color: var(--color-saffron);
+}
+
+.home-media__placeholder p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.home-media > .home-text-link {
+  justify-content: center;
+}
+
+/* =========================================
+   SECTION 5 — UPCOMING UTSAVS
+========================================= */
+
+.home-utsavs {
+  padding: 105px var(--page-padding) 115px;
+  background:
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(245, 166, 35, 0.1),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #fff0d8, #fffaf0);
+}
+
+.home-utsavs .home-section-heading {
+  margin-bottom: 52px;
+}
+
+.home-utsavs__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* Shared event card */
+
+.home-utsav-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 390px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(212, 165, 55, 0.4);
+  border-radius: 24px;
+  background: #fffdf8;
+  box-shadow: 0 12px 35px rgba(74, 43, 25, 0.07);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.home-utsav-card:hover {
+  border-color: var(--color-antique-gold);
+  box-shadow: 0 18px 42px rgba(74, 43, 25, 0.12);
+  transform: translateY(-5px);
+}
+
+/* Jyothi Utsav artwork */
+
+.home-utsav-card__artwork {
+  position: relative;
+  display: flex;
+  min-height: 185px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 194, 80, 0.3),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #8c321b, #512618);
+  color: #f5c76c;
+}
+
+.home-utsav-card__artwork::before,
+.home-utsav-card__artwork::after {
+  position: absolute;
+  width: 185px;
+  height: 185px;
+  border: 1px solid rgba(245, 198, 108, 0.2);
+  border-radius: 50%;
+  content: "";
+}
+
+.home-utsav-card__artwork::after {
+  width: 145px;
+  height: 145px;
+}
+
+.home-utsav-card__halo {
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  border: 1px solid rgba(245, 198, 108, 0.35);
+  border-radius: 50%;
+  box-shadow: 0 0 35px rgba(245, 166, 35, 0.15);
+}
+
+.home-utsav-card__flame {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 15px rgba(245, 166, 35, 0.4));
+  animation: utsavFlame 3s ease-in-out infinite;
+}
+
+.home-utsav-card__sacred-text {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  color: #ffe0a0;
+  font-size: 14px;
+}
+
+/* Card content */
+
+.home-utsav-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 27px 28px 30px;
+}
+
+.home-utsav-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 11px;
+  color: var(--color-saffron);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.home-utsav-card__content h3 {
+  margin-bottom: 12px;
+  color: var(--color-deep-kumkum);
+  font-family: var(--font-heading);
+  font-size: 27px;
+  line-height: 1.3;
+}
+
+.home-utsav-card__content p {
+  margin-bottom: 20px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.home-utsav-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 22px;
+  padding: 9px 12px;
+  border: 1px solid rgba(212, 165, 55, 0.25);
+  border-radius: 9px;
+  background: #fff5e5;
+  color: #89633c;
+  font-size: 12px;
+}
+
+.home-utsav-card__meta svg {
+  flex-shrink: 0;
+  color: var(--color-saffron);
+}
+
+.home-utsav-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+  color: var(--color-deep-kumkum);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-utsav-card__link svg {
+  transition: transform 0.25s ease;
+}
+
+.home-utsav-card__link:hover {
+  color: var(--color-saffron);
+}
+
+.home-utsav-card__link:hover svg {
+  transform: translateX(5px);
+}
+
+/* Announcement card */
+
+.home-utsav-card--announcement {
+  justify-content: flex-start;
+  background:
+    radial-gradient(
+      circle at 100% 0,
+      rgba(245, 166, 35, 0.13),
+      transparent 38%
+    ),
+    #fffdf8;
+}
+
+.home-utsav-card__announcement-icon {
+  display: flex;
+  width: 100%;
+  min-height: 185px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(212, 165, 55, 0.2);
+  background:
+    radial-gradient(circle, rgba(245, 166, 35, 0.18), transparent 55%),
+    #fff4df;
+  color: var(--color-deep-kumkum);
+}
+
+.home-utsav-card__announcement-icon svg {
+  width: 75px;
+  height: 75px;
+  padding: 19px;
+  border: 1px solid rgba(212, 165, 55, 0.5);
+  border-radius: 50%;
+  background: #fffaf0;
+}
+
+/* Flame animation */
+
+@keyframes utsavFlame {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.04);
+  }
+}
+
+/* =========================================
+   TELUGU TYPOGRAPHY
+========================================= */
+
+html[lang="te"] .home-intro__content h1,
+html[lang="te"] .home-section-heading h2,
+html[lang="te"] .home-service-card h3,
+html[lang="te"] .home-about__content h2,
+html[lang="te"] .home-utsav-card__content h3 {
+  font-family: var(--font-telugu);
+  line-height: 1.55;
+}
+
+html[lang="te"] .home-intro__content p,
+html[lang="te"] .home-section-heading p,
+html[lang="te"] .home-service-card p,
+html[lang="te"] .home-about__content p,
+html[lang="te"] .home-utsav-card__content p {
+  line-height: 1.9;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 1100px) {
+  .home-services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-about {
+    gap: 40px;
+  }
+
+  .home-utsavs__grid {
+    gap: 18px;
+  }
+
+  .home-utsav-card__content {
+    padding: 23px;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+  .home-intro {
+    padding: 16px 16px 0;
+  }
+
+  .home-intro__video-placeholder {
+    min-height: 520px;
+    border-radius: 20px;
+  }
+
+  .home-intro__content {
+    width: 100%;
+    padding: 45px 15px;
+  }
+
+  .home-intro__eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .home-intro__content p {
+    font-size: 15px;
+  }
+
+  .home-intro__location {
+    right: 15px;
+    bottom: 17px;
+    font-size: 8px;
+  }
+
+  .home-services,
+  .home-media {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .home-services__heading {
+    margin-bottom: 38px;
+  }
+
+  .home-services__grid {
+    gap: 15px;
+  }
+
+  .home-service-card {
+    min-height: 235px;
+    padding: 23px 19px;
+  }
+
+  .home-service-card h3 {
+    font-size: 19px;
+  }
+
+  .home-about {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .home-about__content {
+    max-width: none;
+  }
+
+  .home-about__visual {
+    min-height: 300px;
+  }
+
+  .home-about__visual-inner {
+    min-height: 240px;
+  }
+
+  .home-utsavs {
+    padding-top: 75px;
+    padding-bottom: 80px;
+  }
+
+  .home-utsavs__grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    gap: 22px;
+  }
+
+  .home-utsav-card {
+    min-height: auto;
+  }
+
+  .home-utsav-card__artwork,
+  .home-utsav-card__announcement-icon {
+    min-height: 175px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .home-intro__video-placeholder {
+    min-height: 460px;
+  }
+
+  .home-intro__content h1 {
+    font-size: 2.25rem;
+  }
+
+  .home-services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-service-card {
+    min-height: 205px;
+  }
+
+  .home-section-heading {
+    margin-bottom: 32px;
+  }
+
+  .home-section-heading h2 {
+    font-size: 2rem;
+  }
+
+  .home-about__visual {
+    min-height: 240px;
+    padding: 18px;
+  }
+
+  .home-about__visual-inner {
+    min-height: 200px;
+    font-size: 21px;
+  }
+
+  .home-media__placeholder {
+    min-height: 220px;
+    padding: 20px;
+  }
+
+  .home-utsav-card__content {
+    padding: 22px 19px 25px;
+  }
+
+  .home-utsav-card__content h3 {
+    font-size: 24px;
+  }
+
+  .home-utsav-card__content p {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-intro__button,
+  .home-intro__button svg,
+  .home-service-card,
+  .home-service-card::before,
+  .home-service-card__icon,
+  .home-service-card__link svg,
+  .home-text-link,
+  .home-text-link svg,
+  .home-utsav-card,
+  .home-utsav-card__link svg {
+    transition: none;
+  }
+
+  .home-utsav-card__flame {
+    animation: none;
+  }
+}

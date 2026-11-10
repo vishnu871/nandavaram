@@ -1,0 +1,96 @@
+@import "./styles/variables.css";
+@import "./styles/reset.css";
+@import "./styles/typography.css";
+
+/* Main document */
+
+html {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+body {
+  background: var(--color-background);
+}
+
+/* React application root */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+/* Shared page layout */
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--color-background);
+}
+
+.main-layout__content {
+  width: 100%;
+  flex: 1;
+}
+
+/* Temporary placeholder pages */
+
+.page-placeholder {
+  display: flex;
+  min-height: 65vh;
+  align-items: center;
+  justify-content: center;
+  padding: 80px var(--page-padding);
+  text-align: center;
+}
+
+.page-placeholder__content {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.page-placeholder__eyebrow {
+  margin-bottom: 18px;
+  color: var(--color-saffron);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.page-placeholder h1 {
+  margin-bottom: 20px;
+  color: var(--color-deep-kumkum);
+}
+
+.page-placeholder__content > p:last-child {
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Selection and interactive defaults */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-antique-gold);
+  outline-offset: 4px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+  .page-placeholder {
+    min-height: 55vh;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}

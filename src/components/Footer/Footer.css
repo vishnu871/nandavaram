@@ -1,0 +1,342 @@
+
+/* =========================================
+   TEMPLE FOOTER
+========================================= */
+
+.temple-footer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      rgba(212, 165, 55, 0.09),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #512618, #351b12);
+  color: #fff4df;
+}
+
+/* Decorative top border */
+
+.temple-footer__top-border {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d4a537 20%,
+    #f5c76c 50%,
+    #d4a537 80%,
+    transparent
+  );
+}
+
+/* Main footer layout */
+
+.temple-footer__main {
+  display: grid;
+  grid-template-columns: 1.7fr 0.8fr 0.9fr;
+  gap: 65px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 75px var(--page-padding) 65px;
+}
+
+/* Temple branding */
+
+.temple-footer__brand {
+  max-width: 460px;
+}
+
+.temple-footer__brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
+  color: #fff4df;
+  text-decoration: none;
+}
+
+.temple-footer__logo {
+  display: flex;
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(245, 198, 108, 0.6);
+  border-radius: 50%;
+  background: rgba(245, 166, 35, 0.1);
+  color: #f5c76c;
+}
+
+.temple-footer__brand-name {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.temple-footer__brand-name strong {
+  color: #fff4df;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.temple-footer__brand-name span {
+  color: #d8b989;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.temple-footer__description {
+  max-width: 420px;
+  margin-bottom: 25px;
+  color: rgba(255, 244, 223, 0.72);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.temple-footer__location {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #e8c98e;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.temple-footer__location svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #f5b942;
+}
+
+/* Footer link columns */
+
+.temple-footer__column {
+  padding-top: 8px;
+}
+
+.temple-footer__column h3 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 27px;
+  padding-bottom: 12px;
+  color: #f5c76c;
+  font-family: var(--font-heading);
+  font-size: 19px;
+}
+
+.temple-footer__column h3::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 38px;
+  height: 2px;
+  border-radius: 2px;
+  background: #d4a537;
+  content: "";
+}
+
+.temple-footer__column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.temple-footer__column li {
+  margin: 0;
+  padding: 0;
+}
+
+.temple-footer__column a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 244, 223, 0.75);
+  font-size: 13px;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.temple-footer__column a svg {
+  opacity: 0;
+  color: #f5c76c;
+  transform: translate(-4px, 4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.temple-footer__column a:hover {
+  color: #f5c76c;
+  transform: translateX(3px);
+}
+
+.temple-footer__column a:hover svg {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Footer bottom */
+
+.temple-footer__bottom {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px var(--page-padding);
+  border-top: 1px solid rgba(212, 165, 55, 0.22);
+}
+
+.temple-footer__bottom p {
+  margin: 0;
+  color: rgba(255, 244, 223, 0.6);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.temple-footer__back-to-top {
+  display: inline-flex;
+  min-height: 38px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid rgba(212, 165, 55, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  color: #f5c76c;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.temple-footer__back-to-top:hover {
+  border-color: #d4a537;
+  background: #d4a537;
+  color: #351b12;
+}
+
+/* =========================================
+   TELUGU TYPOGRAPHY
+========================================= */
+
+html[lang="te"] .temple-footer__brand-name strong,
+html[lang="te"] .temple-footer__column h3 {
+  font-family: var(--font-telugu);
+  line-height: 1.6;
+}
+
+html[lang="te"] .temple-footer__description,
+html[lang="te"] .temple-footer__location,
+html[lang="te"] .temple-footer__column a {
+  line-height: 1.9;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 1000px) {
+  .temple-footer__main {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 45px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+
+  .temple-footer__brand {
+    grid-column: 1 / -1;
+    max-width: 650px;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+  .temple-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 20px;
+    padding: 50px 22px 40px;
+  }
+
+  .temple-footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .temple-footer__brand-link {
+    gap: 12px;
+  }
+
+  .temple-footer__logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .temple-footer__brand-name strong {
+    font-size: 16px;
+  }
+
+  .temple-footer__description {
+    font-size: 13px;
+  }
+
+  .temple-footer__column h3 {
+    margin-bottom: 21px;
+    font-size: 17px;
+  }
+
+  .temple-footer__column ul {
+    gap: 14px;
+  }
+
+  .temple-footer__column a {
+    font-size: 12px;
+  }
+
+  .temple-footer__bottom {
+    min-height: auto;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 360px) {
+  .temple-footer__main {
+    grid-template-columns: 1fr;
+  }
+
+  .temple-footer__brand {
+    grid-column: auto;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .temple-footer__column a,
+  .temple-footer__column a svg,
+  .temple-footer__back-to-top {
+    transition: none;
+  }
+}
