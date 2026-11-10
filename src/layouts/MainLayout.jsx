@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar/Navbar.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import LanguagePrompt from "../components/LanguagePrompt/LanguagePrompt.jsx";
 
+import "../styles/layout.css";
+
 function MainLayout() {
   // Real authentication will be connected in a later stage.
   const isAuthenticated = false;

@@ -6,11 +6,16 @@ import {
 } from "react-router-dom";
 
 import { LanguageProvider } from "./context/LanguageContext.jsx";
+
 import MainLayout from "./layouts/MainLayout.jsx";
+
+import LanguagePrompt from "./components/LanguagePrompt/LanguagePrompt.jsx";
 
 import Home from "./pages/Home/Home.jsx";
 import About from "./pages/About/About.jsx";
 import Auth from "./pages/Auth/Auth.jsx";
+import DarshanBooking from "./pages/DarshanBooking/DarshanBooking.jsx";
+import Donations from "./pages/Donations/Donations.jsx";
 
 function PlaceholderPage({ title, description }) {
   return (
@@ -46,24 +51,6 @@ function ProfilePage() {
   );
 }
 
-function DarshanBookingPage() {
-  return (
-    <PlaceholderPage
-      title="Darshan Booking"
-      description="The devotee darshan booking experience will be implemented here."
-    />
-  );
-}
-
-function DonationsPage() {
-  return (
-    <PlaceholderPage
-      title="Donations"
-      description="Temple donation information and the donation process will be added here."
-    />
-  );
-}
-
 function EventsPage() {
   return (
     <PlaceholderPage
@@ -86,6 +73,8 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <LanguagePrompt />
+
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
@@ -103,12 +92,12 @@ function App() {
 
             <Route
               path="/darshan-booking"
-              element={<DarshanBookingPage />}
+              element={<DarshanBooking />}
             />
 
             <Route
               path="/donations"
-              element={<DonationsPage />}
+              element={<Donations />}
             />
 
             <Route path="/events" element={<EventsPage />} />

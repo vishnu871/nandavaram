@@ -1,0 +1,24 @@
+
+/* =========================================
+   SHARED WEBSITE LAYOUT
+   Consistent spacing below floating navbar
+========================================= */
+
+.main-layout__content {
+  padding-top: 24px;
+}
+
+/* About page already has its own horizontal spacing.
+   Prevent an additional vertical gap from accumulating. */
+
+.main-layout__content .about-hero {
+  margin-top: 0;
+}
+
+/* Keep shared content spacing on smaller screens. */
+
+@media (max-width: 640px) {
+  .main-layout__content {
+    padding-top: 18px;
+  }
+}

@@ -1,0 +1,1543 @@
+
+
+/* =========================================
+   DARSHAN BOOKING - PAGE FOUNDATION
+========================================= */
+
+.darshan-page {
+  min-height: 100vh;
+  padding-bottom: 80px;
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(232, 117, 22, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 35%,
+      rgba(212, 165, 55, 0.09),
+      transparent 32%
+    ),
+    var(--color-sacred-ivory, #fff4df);
+  color: var(--color-temple-brown, #4a2b19);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.darshan-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 270px;
+  padding: 70px 24px 55px;
+  text-align: center;
+  color: #fff8ed;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 210, 126, 0.24),
+      transparent 52%
+    ),
+    linear-gradient(
+      135deg,
+      #8c321b 0%,
+      #a94b1c 48%,
+      #713019 100%
+    );
+}
+
+.darshan-hero::before,
+.darshan-hero::after {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  content: "";
+  border: 1px solid rgba(255, 218, 157, 0.17);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.darshan-hero::before {
+  top: -190px;
+  left: -90px;
+  box-shadow:
+    0 0 0 25px rgba(255, 218, 157, 0.035),
+    0 0 0 50px rgba(255, 218, 157, 0.025);
+}
+
+.darshan-hero::after {
+  right: -110px;
+  bottom: -220px;
+  box-shadow:
+    0 0 0 25px rgba(255, 218, 157, 0.035),
+    0 0 0 50px rgba(255, 218, 157, 0.025);
+}
+
+.darshan-hero__ornament {
+  margin-bottom: 12px;
+  color: #f5c86e;
+  font-size: 28px;
+  animation: darshan-ornament-glow 3s ease-in-out infinite;
+}
+
+.darshan-hero__eyebrow {
+  margin-bottom: 13px;
+  color: #f5d99c;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.darshan-hero h1 {
+  margin: 0;
+  color: #fff8ed;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: clamp(30px, 4vw, 45px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.darshan-hero p {
+  max-width: 540px;
+  margin: 15px 0 0;
+  color: rgba(255, 248, 237, 0.83);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.darshan-container {
+  width: min(100% - 40px, 850px);
+  margin: 0 auto;
+  padding-top: 42px;
+}
+
+/* =========================================
+   PROGRESS INDICATOR
+========================================= */
+
+.darshan-progress {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 34px;
+}
+
+.darshan-progress__step {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: #a18b73;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.darshan-progress__circle {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid #dfd0b8;
+  border-radius: 50%;
+  background: #fffaf1;
+  color: #9a856d;
+  font-size: 13px;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.darshan-progress__step.is-active {
+  color: var(--color-deep-kumkum, #8c321b);
+}
+
+.darshan-progress__step.is-active .darshan-progress__circle {
+  border-color: #d9952f;
+  background: #e87516;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(232, 117, 22, 0.2);
+}
+
+.darshan-progress__step:last-child .darshan-progress__circle {
+  margin-bottom: 0;
+}
+
+.darshan-progress__line {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: calc(50% + 22px);
+  width: calc(100% - 44px);
+  height: 2px;
+  background: #e4d7c4;
+  transition: background 0.25s ease;
+}
+
+.darshan-progress__line.is-active {
+  background: #d9952f;
+}
+
+/* =========================================
+   MAIN BOOKING CARD
+========================================= */
+
+.darshan-card {
+  overflow: hidden;
+  border: 1px solid rgba(212, 165, 55, 0.24);
+  border-radius: 20px;
+  background: #fffdf8;
+  box-shadow:
+    0 15px 50px rgba(74, 43, 25, 0.065),
+    0 2px 8px rgba(74, 43, 25, 0.025);
+}
+
+.darshan-card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 29px 34px 25px;
+  border-bottom: 1px solid #eee3d2;
+  background: linear-gradient(
+    110deg,
+    #fffaf0,
+    #fffdf8
+  );
+}
+
+.darshan-card__step-label {
+  display: block;
+  margin-bottom: 9px;
+  color: #b17b2d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.darshan-card__heading h2 {
+  margin: 0;
+  color: #4a2b19;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.darshan-card__heading-icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(212, 165, 55, 0.3);
+  border-radius: 14px;
+  background: #fff3dc;
+  color: #a84e1c;
+}
+
+.darshan-step {
+  padding: 30px 34px 34px;
+}
+
+.darshan-description {
+  margin: 0;
+  color: #877762;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   DARSHAN OPTIONS
+========================================= */
+
+.darshan-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+  margin-top: 25px;
+}
+
+.darshan-option {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  min-width: 0;
+  padding: 23px 20px;
+  border: 1.5px solid #e9ddca;
+  border-radius: 15px;
+  background: #fffefa;
+  color: #4a2b19;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.darshan-option:hover {
+  border-color: #d7a64c;
+  background: #fff9ed;
+  transform: translateY(-3px);
+}
+
+.darshan-option.is-selected {
+  border-color: #df9a36;
+  background: #fff6e7;
+  box-shadow: 0 5px 18px rgba(212, 165, 55, 0.13);
+}
+
+.darshan-option__icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  place-items: center;
+  border-radius: 12px;
+  background: #fff0d5;
+  color: #a84e1c;
+}
+
+.darshan-option__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.darshan-option__content > strong {
+  color: #4a2b19;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.darshan-option__content > small {
+  color: #907e68;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.darshan-option__price {
+  margin-top: 9px;
+  color: #9b461c;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.darshan-option__price small {
+  color: #927d64;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.darshan-option__radio {
+  display: grid;
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border: 1.5px solid #d9c9b2;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.darshan-option.is-selected .darshan-option__radio {
+  border-color: #e87516;
+  background: #e87516;
+}
+
+.darshan-info-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px solid #eddfc7;
+  border-radius: 11px;
+  background: #fff8ec;
+  color: #946020;
+}
+
+.darshan-info-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.darshan-info-note p {
+  margin: 0;
+  color: #806b50;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.darshan-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+  margin-top: 26px;
+}
+
+.darshan-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.darshan-field--full {
+  grid-column: 1 / -1;
+}
+
+.darshan-field label {
+  color: #57412e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.darshan-field label span {
+  margin-left: 4px;
+  color: #c44d32;
+}
+
+.darshan-field input {
+  width: 100%;
+  min-width: 0;
+  height: 47px;
+  padding: 0 14px;
+  border: 1px solid #e7dccb;
+  border-radius: 9px;
+  outline: none;
+  background: #fffefa;
+  color: #4a2b19;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.darshan-field input::placeholder {
+  color: #b2a28e;
+}
+
+.darshan-field input:focus {
+  border-color: #d9952f;
+  box-shadow: 0 0 0 3px rgba(217, 149, 47, 0.12);
+}
+
+.darshan-input-prefix {
+  display: flex;
+  align-items: center;
+  height: 47px;
+  overflow: hidden;
+  border: 1px solid #e7dccb;
+  border-radius: 9px;
+  background: #fffefa;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.darshan-input-prefix:focus-within {
+  border-color: #d9952f;
+  box-shadow: 0 0 0 3px rgba(217, 149, 47, 0.12);
+}
+
+.darshan-input-prefix > span {
+  display: grid;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 0 12px;
+  place-items: center;
+  border-right: 1px solid #eee2d1;
+  color: #80694e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.darshan-field .darshan-input-prefix input {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.darshan-field__hint {
+  color: #998873;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.darshan-error {
+  display: block;
+  color: #b83e2d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   COUNTER
+========================================= */
+
+.darshan-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 142px;
+  height: 43px;
+  overflow: hidden;
+  border: 1px solid #e8d9c2;
+  border-radius: 9px;
+  background: #fffefa;
+}
+
+.darshan-counter button {
+  display: grid;
+  width: 42px;
+  height: 100%;
+  place-items: center;
+  border: 0;
+  background: #fff6e7;
+  color: #91451d;
+  font-size: 21px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.darshan-counter button:hover:not(:disabled) {
+  background: #f7e6c8;
+}
+
+.darshan-counter button:disabled {
+  color: #c9bda9;
+  cursor: not-allowed;
+}
+
+.darshan-counter strong {
+  min-width: 35px;
+  color: #4a2b19;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* =========================================
+   DATE FIELD
+========================================= */
+
+.darshan-date-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.darshan-date-wrap > svg {
+  position: absolute;
+  left: 13px;
+  z-index: 1;
+  color: #a46c2b;
+  pointer-events: none;
+}
+
+.darshan-field .darshan-date-wrap input {
+  padding-left: 41px;
+}
+
+/* =========================================
+   LADDU SECTION
+========================================= */
+
+.darshan-laddu-section {
+  margin-top: 30px;
+  padding: 23px;
+  border: 1px solid #ead9bd;
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      130deg,
+      rgba(255, 246, 228, 0.95),
+      rgba(255, 252, 245, 0.95)
+    );
+}
+
+.darshan-laddu-section__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 17px;
+}
+
+.darshan-laddu-section__heading h3 {
+  margin: 0 0 5px;
+  color: #593b23;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 18px;
+}
+
+.darshan-laddu-section__heading p {
+  margin: 0;
+  color: #927e64;
+  font-size: 11px;
+}
+
+.darshan-laddu-section__price {
+  color: #9b461c;
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.darshan-laddu-section__price small {
+  color: #927e64;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.darshan-laddu-choice {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.darshan-laddu-choice button {
+  min-height: 41px;
+  padding: 0 17px;
+  border: 1px solid #e5d5bd;
+  border-radius: 8px;
+  background: #fffefa;
+  color: #6f5941;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.darshan-laddu-choice button:hover {
+  border-color: #d9a044;
+}
+
+.darshan-laddu-choice button.is-selected {
+  border-color: #d9952f;
+  background: #fff0d5;
+  color: #8c321b;
+}
+
+.darshan-laddu-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #eadcc8;
+}
+
+.darshan-laddu-quantity > span {
+  color: #705b43;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.darshan-laddu-quantity > strong {
+  color: #9b461c;
+  font-size: 15px;
+}
+
+/* =========================================
+   PRICE PREVIEW
+========================================= */
+
+.darshan-price-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 24px;
+  padding: 19px 20px;
+  border: 1px solid #e8d7b8;
+  border-radius: 11px;
+  background: #fff8e9;
+}
+
+.darshan-price-preview span {
+  color: #71583c;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.darshan-price-preview strong {
+  color: #9a421c;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+/* =========================================
+   REVIEW SECTIONS
+========================================= */
+
+.darshan-review-section {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #eee3d3;
+  border-radius: 12px;
+  background: #fffefa;
+}
+
+.darshan-review-section:first-of-type {
+  margin-top: 23px;
+}
+
+.darshan-review-section__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #eee4d5;
+  color: #a45120;
+}
+
+.darshan-review-section__title h3 {
+  margin: 0;
+  color: #573c26;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.darshan-review-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 9px 0;
+}
+
+.darshan-review-row > span {
+  color: #8c7a64;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.darshan-review-row > strong {
+  max-width: 60%;
+  color: #513922;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.darshan-review-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 12px;
+  padding-top: 17px;
+  border-top: 1px solid #e8d8bd;
+}
+
+.darshan-review-total span {
+  color: #593e27;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.darshan-review-total strong {
+  color: #9a421c;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.darshan-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 34px;
+  border-top: 1px solid #eee3d2;
+  background: #fffaf1;
+}
+
+.darshan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 47px;
+  padding: 0 21px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.darshan-button:hover {
+  transform: translateY(-2px);
+}
+
+.darshan-button--primary {
+  border-color: #b95b1b;
+  background: linear-gradient(135deg, #e87516, #b84c1a);
+  color: #fff;
+  box-shadow: 0 5px 13px rgba(184, 76, 26, 0.16);
+}
+
+.darshan-button--primary:hover {
+  background: linear-gradient(135deg, #d96811, #a94016);
+  box-shadow: 0 7px 18px rgba(184, 76, 26, 0.23);
+}
+
+.darshan-button--secondary {
+  border-color: #e2d3bd;
+  background: #fffdf8;
+  color: #75583a;
+}
+
+.darshan-button--secondary:hover {
+  border-color: #c89a50;
+  background: #fff5e4;
+}
+
+/* =========================================
+   PAYMENT
+========================================= */
+
+.darshan-payment-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.darshan-payment-icon {
+  display: grid;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+  place-items: center;
+  border: 1px solid #ebd4a9;
+  border-radius: 50%;
+  background: #fff1d8;
+  color: #a84e1c;
+}
+
+.darshan-payment-step h3 {
+  margin: 0 0 10px;
+  color: #4a2b19;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 23px;
+}
+
+.darshan-payment-step > .darshan-description {
+  max-width: 500px;
+}
+
+.darshan-payment-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: min(100%, 380px);
+  margin: 27px 0 22px;
+  padding: 23px;
+  border: 1px solid #ead9bd;
+  border-radius: 13px;
+  background: #fff8e9;
+}
+
+.darshan-payment-amount span {
+  color: #80694e;
+  font-size: 12px;
+}
+
+.darshan-payment-amount strong {
+  color: #9a421c;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.darshan-payment-success-button,
+.darshan-payment-step > .darshan-button--secondary {
+  width: min(100%, 380px);
+  margin-top: 11px;
+}
+
+.darshan-payment-failed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 380px);
+  margin: 0 0 13px;
+  padding: 13px;
+  border: 1px solid #e7b7a8;
+  border-radius: 9px;
+  background: #fff0ec;
+  color: #ad432e;
+  font-size: 12px;
+  text-align: left;
+}
+
+.darshan-payment-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  max-width: 420px;
+  margin: 22px 0 0;
+  color: #947c5d;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.darshan-payment-disclaimer svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #a66a2c;
+}
+
+/* =========================================
+   CONFIRMATION
+========================================= */
+
+.darshan-confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 38px 34px;
+  text-align: center;
+}
+
+.darshan-confirmation__icon {
+  display: grid;
+  width: 78px;
+  height: 78px;
+  margin-bottom: 20px;
+  place-items: center;
+  border: 1px solid #c8dfbc;
+  border-radius: 50%;
+  background: #eef8e8;
+  color: #4e8a3d;
+}
+
+.darshan-confirmation h2 {
+  margin: 0 0 10px;
+  color: #4a2b19;
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 28px;
+}
+
+.darshan-confirmation > .darshan-description {
+  margin-bottom: 24px;
+}
+
+.darshan-ticket {
+  width: min(100%, 520px);
+  overflow: hidden;
+  border: 1px solid #dfcba8;
+  border-radius: 13px;
+  background: #fffefa;
+  text-align: left;
+}
+
+.darshan-ticket__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 23px 15px;
+  background: linear-gradient(135deg, #87351d, #a94b1c);
+  color: #fff6e8;
+  text-align: center;
+}
+
+.darshan-ticket__header span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.darshan-ticket__header strong {
+  color: #f3d69a;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.darshan-ticket__reference {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 19px;
+  border-bottom: 1px dashed #d8c5a6;
+  background: #fff8eb;
+}
+
+.darshan-ticket__reference > span {
+  color: #9c805a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.darshan-ticket__reference > strong {
+  color: #8c321b;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.darshan-ticket__reference button {
+  display: grid;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #e7d5b5;
+  border-radius: 7px;
+  background: #fffefa;
+  color: #8c5125;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.darshan-ticket__body {
+  padding: 15px 22px 20px;
+}
+
+.darshan-ticket__body .darshan-review-row {
+  padding: 8px 0;
+}
+
+.darshan-ticket__total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 12px;
+  padding-top: 17px;
+  border-top: 1px solid #e6d7bd;
+}
+
+.darshan-ticket__total span {
+  color: #5d432b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.darshan-ticket__total strong {
+  color: #9a421c;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.darshan-ticket__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px;
+  border-top: 1px solid #d6e4c9;
+  background: #f1f8eb;
+  color: #527b3c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.darshan-demo-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  width: min(100%, 520px);
+  margin-top: 20px;
+  padding: 14px;
+  border: 1px solid #e8cba0;
+  border-radius: 10px;
+  background: #fff7e9;
+  color: #9a6326;
+  text-align: left;
+}
+
+.darshan-demo-warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.darshan-demo-warning p {
+  margin: 0;
+  color: #7c6649;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.darshan-confirmation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* =========================================
+   PAGE FOOTNOTE
+========================================= */
+
+.darshan-page__note {
+  max-width: 650px;
+  margin: 24px auto 0;
+  color: #98836a;
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes darshan-ornament-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .darshan-hero {
+    min-height: 240px;
+    padding: 60px 20px 45px;
+  }
+
+  .darshan-container {
+    width: min(100% - 30px, 650px);
+    padding-top: 30px;
+  }
+
+  .darshan-step {
+    padding: 26px 25px 30px;
+  }
+
+  .darshan-card__heading {
+    padding: 25px;
+  }
+
+  .darshan-card__footer {
+    padding: 18px 25px;
+  }
+
+  .darshan-options {
+    gap: 12px;
+  }
+
+  .darshan-option {
+    gap: 11px;
+    padding: 18px 14px;
+  }
+
+  .darshan-option__icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .darshan-option__content > strong {
+    font-size: 13px;
+  }
+
+  .darshan-option__price {
+    font-size: 21px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+  .darshan-page {
+    padding-bottom: 48px;
+  }
+
+  .darshan-hero {
+    min-height: 205px;
+    padding: 45px 18px 38px;
+  }
+
+  .darshan-hero__eyebrow {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .darshan-hero h1 {
+    font-size: 29px;
+  }
+
+  .darshan-hero p {
+    max-width: 330px;
+    margin-top: 11px;
+    font-size: 12px;
+  }
+
+  .darshan-container {
+    width: calc(100% - 24px);
+    padding-top: 25px;
+  }
+
+  .darshan-progress {
+    margin-bottom: 24px;
+  }
+
+  .darshan-progress__step {
+    gap: 7px;
+    font-size: 9px;
+  }
+
+  .darshan-progress__circle {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .darshan-progress__line {
+    top: 15px;
+    left: calc(50% + 19px);
+    width: calc(100% - 38px);
+  }
+
+  .darshan-card {
+    border-radius: 15px;
+  }
+
+  .darshan-card__heading {
+    padding: 21px 19px;
+  }
+
+  .darshan-card__heading h2 {
+    font-size: 21px;
+  }
+
+  .darshan-card__heading-icon {
+    width: 41px;
+    height: 41px;
+    border-radius: 11px;
+  }
+
+  .darshan-step {
+    padding: 22px 18px 25px;
+  }
+
+  .darshan-description {
+    font-size: 12px;
+  }
+
+  .darshan-options {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin-top: 19px;
+  }
+
+  .darshan-option {
+    padding: 17px;
+  }
+
+  .darshan-option__content > strong {
+    font-size: 14px;
+  }
+
+  .darshan-option__content > small {
+    font-size: 11px;
+  }
+
+  .darshan-form-grid {
+    grid-template-columns: 1fr;
+    gap: 19px;
+    margin-top: 22px;
+  }
+
+  .darshan-field--full {
+    grid-column: auto;
+  }
+
+  .darshan-field label {
+    font-size: 12px;
+  }
+
+  .darshan-laddu-section {
+    margin-top: 24px;
+    padding: 18px;
+  }
+
+  .darshan-laddu-section__heading h3 {
+    font-size: 17px;
+  }
+
+  .darshan-price-preview {
+    padding: 16px;
+  }
+
+  .darshan-price-preview span {
+    font-size: 11px;
+  }
+
+  .darshan-price-preview strong {
+    font-size: 23px;
+  }
+
+  .darshan-card__footer {
+    padding: 16px 18px;
+  }
+
+  .darshan-button {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  .darshan-review-section {
+    padding: 16px;
+  }
+
+  .darshan-review-row {
+    gap: 12px;
+  }
+
+  .darshan-review-row > span,
+  .darshan-review-row > strong {
+    font-size: 11px;
+  }
+
+  .darshan-review-total span {
+    font-size: 12px;
+  }
+
+  .darshan-review-total strong {
+    font-size: 22px;
+  }
+
+  .darshan-confirmation {
+    padding: 28px 17px;
+  }
+
+  .darshan-confirmation h2 {
+    font-size: 24px;
+  }
+
+  .darshan-ticket__header {
+    padding: 19px 12px;
+  }
+
+  .darshan-ticket__header span {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .darshan-ticket__reference {
+    padding: 18px 42px 18px 10px;
+  }
+
+  .darshan-ticket__reference > strong {
+    font-size: 15px;
+  }
+
+  .darshan-ticket__reference button {
+    right: 9px;
+  }
+
+  .darshan-ticket__body {
+    padding: 12px 15px 17px;
+  }
+
+  .darshan-ticket__total strong {
+    font-size: 21px;
+  }
+
+  .darshan-confirmation__actions {
+    flex-direction: column;
+  }
+
+  .darshan-confirmation__actions .darshan-button {
+    width: 100%;
+  }
+
+  .darshan-page__note {
+    padding: 0 8px;
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .darshan-hero h1 {
+    font-size: 25px;
+  }
+
+  .darshan-container {
+    width: calc(100% - 18px);
+  }
+
+  .darshan-card__heading {
+    padding: 18px 14px;
+  }
+
+  .darshan-card__heading h2 {
+    font-size: 19px;
+  }
+
+  .darshan-step {
+    padding: 19px 13px 22px;
+  }
+
+  .darshan-card__footer {
+    padding: 14px 12px;
+  }
+
+  .darshan-button {
+    gap: 6px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   PRINT - DEMO TICKET
+========================================= */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  .darshan-page {
+    min-height: auto;
+    padding: 0;
+    background: #fff !important;
+  }
+
+  .darshan-hero,
+  .darshan-progress,
+  .darshan-card__heading,
+  .darshan-page__note,
+  .darshan-confirmation__actions,
+  .darshan-confirmation__icon,
+  .darshan-confirmation > .darshan-card__step-label,
+  .darshan-confirmation > .darshan-description,
+  .darshan-demo-warning {
+    display: none !important;
+  }
+
+  .darshan-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .darshan-card {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .darshan-confirmation {
+    padding: 0;
+  }
+
+  .darshan-ticket {
+    width: 100%;
+    max-width: 550px;
+    border: 1px solid #c7aa7a;
+    box-shadow: none;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .darshan-ticket__header,
+  .darshan-ticket__reference,
+  .darshan-ticket__footer {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .darshan-ticket__reference button {
+    display: none;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .darshan-page *,
+  .darshan-page *::before,
+  .darshan-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
