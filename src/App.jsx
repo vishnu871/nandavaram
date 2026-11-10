@@ -9,6 +9,7 @@ import { LanguageProvider } from "./context/LanguageContext.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 
 import Home from "./pages/Home/Home.jsx";
+import About from "./pages/About/About.jsx";
 import Auth from "./pages/Auth/Auth.jsx";
 
 function PlaceholderPage({ title, description }) {
@@ -88,22 +89,30 @@ function App() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<PlaceholderPage title="About the Temple" description="Discover the temple, its spiritual significance, traditions and heritage." />} />
+
+            <Route path="/about" element={<About />} />
+
             <Route
               path="/media-archive"
               element={<MediaArchivePage />}
             />
+
             <Route path="/auth" element={<Auth />} />
+
             <Route path="/profile" element={<ProfilePage />} />
+
             <Route
               path="/darshan-booking"
               element={<DarshanBookingPage />}
             />
+
             <Route
               path="/donations"
               element={<DonationsPage />}
             />
+
             <Route path="/events" element={<EventsPage />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

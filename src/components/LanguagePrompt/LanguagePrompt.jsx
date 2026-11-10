@@ -1,19 +1,13 @@
-
 import { useState } from "react";
 import { Check, Globe2, Languages, X } from "lucide-react";
-
 import { useLanguage } from "../../context/useLanguage.js";
 import "./LanguagePrompt.css";
 
 const PROMPT_DISMISSED_KEY = "nandavaram-language-prompt-dismissed";
-const LANGUAGE_STORAGE_KEY = "nandavaram-language";
 
 function shouldShowPrompt() {
   try {
-    const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    const dismissed = localStorage.getItem(PROMPT_DISMISSED_KEY);
-
-    return !savedLanguage && !dismissed;
+    return localStorage.getItem(PROMPT_DISMISSED_KEY) !== "true";
   } catch {
     return false;
   }
@@ -27,7 +21,7 @@ function LanguagePrompt() {
     try {
       localStorage.setItem(PROMPT_DISMISSED_KEY, "true");
     } catch {
-      // The prompt can still be dismissed without browser storage.
+      // The prompt can still be dismissed for this page view.
     }
 
     setIsVisible(false);
@@ -35,15 +29,7 @@ function LanguagePrompt() {
 
   function selectLanguage(language) {
     changeLanguage(language);
-
-    try {
-      localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
-      localStorage.setItem(PROMPT_DISMISSED_KEY, "true");
-    } catch {
-      // Language selection remains available without browser storage.
-    }
-
-    setIsVisible(false);
+    closePrompt();
   }
 
   if (!isVisible) {
@@ -80,17 +66,10 @@ function LanguagePrompt() {
           SRI CHOWDESWARI DEVI TEMPLE
         </span>
 
-        <h2 id="language-prompt-title">
-          Choose Your Language
-        </h2>
+        <h2 id="language-prompt-title">Choose Your Language</h2>
+        <h3 lang="te">మీ భాషను ఎంచుకోండి</h3>
 
-        <h3 lang="te">
-          మీ భాషను ఎంచుకోండి
-        </h3>
-
-        <p>
-          Select the language you are comfortable with.
-        </p>
+        <p>Select the language you are comfortable with.</p>
 
         <p className="language-prompt__telugu-description" lang="te">
           మీకు అనువైన భాషను ఎంచుకోండి
